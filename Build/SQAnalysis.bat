@@ -1,6 +1,6 @@
 @echo off
 
-set Version=輸入你的軟體版本
+set Version=1.0.0
 set ScannerVersion=9.0.0.100868
 
 REM download scanner
@@ -25,7 +25,7 @@ if %CI_COMMIT_BRANCH% == %CI_DEFAULT_BRANCH% (
     goto sonar
 )
 rem release beanch
-echo %CI_COMMIT_BRANCH%|findstr /r "^輸入你的release分支前綴_">nul
+echo %CI_COMMIT_BRANCH%|findstr /r "^release_">nul
 if %Errorlevel% EQU 0 (
     set newcode=/v:sonar.projectVersion=%Version%
     goto sonar
